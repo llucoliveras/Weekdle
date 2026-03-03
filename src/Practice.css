@@ -1,0 +1,194 @@
+.container {
+  flex: 1; /* Takes up the remaining space next to the history */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: row; /* Back to side-by-side */
+  align-items: center;
+  justify-content: center;
+  gap: 0;           /* Space between date and button */
+  min-height: 120px;   /* Tall enough so the date doesn't move when button appears */
+  width: 100%;
+}
+
+.date {
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #ffffff;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  flex-shrink: 0; /* Prevents the date from getting smaller to make room */
+  text-align: center;
+  white-space: nowrap;
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  /* When hidden: */
+  max-width: 0;
+  opacity: 0;
+}
+
+.button-wrapper.visible {
+  max-width: 250px; /* Enough space for the button */
+  opacity: 1;
+  margin-left: 30px; /* This creates the gap smoothly */
+}
+
+.button {
+  width: calc(25% - 12px); 
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid #333;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button:hover:not(:disabled) {
+  background-color: #2a2a2a;
+  border-color: #444;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Keyframes for the smooth entrance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nextButton {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  background: #ffffff;
+  color: #121212;
+  cursor: pointer;
+  margin-top: 0; /* Remove top margin since they are now side-by-side */
+  white-space: nowrap; /* Prevents text wrapping during animation */
+
+  /* Animation Trigger */
+  animation: fadeIn 0.4s ease-out forwards;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nextButton:hover {
+  transform: scale(1.05);
+  background: #f0f0f0;
+}
+
+.nextButton:active {
+  transform: scale(0.95);
+}
+
+.buttonGrid {
+  display: flex;
+  flex-wrap: wrap;       /* Allows buttons to drop to next line */
+  justify-content: center; /* Centers the buttons in every row */
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Feedback States */
+.backgroundGreen {
+  background-color: #00c853 !important;
+  border-color: #00c853 !important;
+  color: #ffffff;
+}
+
+.backgroundRed {
+  background-color: #ff5252 !important;
+  border-color: #ff5252 !important;
+  color: #ffffff;
+}
+
+.backgroundWhite {
+  background-color: #1e1e1e;
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 0;
+  opacity: 0;
+}
+
+.button-wrapper.visible {
+  max-width: 250px;
+  opacity: 1;
+  margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+  .topSection {
+    flex-direction: column;
+    min-height: auto;       /* Remove the large reserved height */
+    height: auto;
+    margin-bottom: 30px;    /* Space between date/next button and answer buttons */
+    gap: 10px;
+  }
+
+  .date {
+    font-size: 2.5rem;      /* Slightly smaller to ensure it fits any screen width */
+    transform: none !important; /* Reset any "shift" that might be pushing it up */
+    margin-top: 0;
+  }
+
+  .date.shifted {
+    transform: translateY(-10px); /* Slightly lifts the date when button appears */
+  }
+
+  .buttonGrid {
+    gap: 10px;
+    padding: 0 15px;
+  }
+
+  .button {
+    width: calc(50% - 10px);
+    padding: 18px 0;
+  }
+
+  .button-wrapper {
+    max-width: none;       /* Reset horizontal restriction */
+    max-height: 0;         /* Use height for vertical expansion */
+    margin-left: 0;        /* Reset desktop margin */
+  }
+
+  .button-wrapper.visible {
+    max-height: 60px;       /* Compact button area */
+    margin-top: 5px;
+  }
+}
+

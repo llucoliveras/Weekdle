@@ -1,0 +1,101 @@
+.historyContainer {
+  width: 320px;
+  padding: 30px 20px;
+  border-left: 1px solid #222;
+  background-color: #181818;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #333 #181818;
+  scroll-behavior: smooth;
+  border-left: 1px solid rgba(255, 255, 255, 0.05); /* Softer border */
+  mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+}
+
+.historyContainer h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.historyContainer::-webkit-scrollbar {
+  width: 8px; /* Slimmer than default */
+}
+
+.historyContainer::-webkit-scrollbar-track {
+  background: #181818; /* Matches the container background */
+}
+
+.historyContainer::-webkit-scrollbar-thumb {
+  background: #333; /* Subtle dark gray handle */
+  border-radius: 10px; /* Fully rounded ends */
+  border: 2px solid #181818; /* Creates a "floating" effect */
+}
+
+.historyContainer::-webkit-scrollbar-thumb:hover {
+  background: #444; /* Lights up slightly when hovered */
+}
+
+.historyItem {
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  background-color: #222;
+  border: 1px solid transparent;
+}
+
+.historyCorrect {
+  border-left: 4px solid #00c853;
+  background: linear-gradient(90deg, #1b2e22 0%, #1e1e1e 100%);
+}
+
+.historyWrong {
+  border-left: 4px solid #ff5252;
+  background: linear-gradient(90deg, #2e1b1b 0%, #1e1e1e 100%);
+}
+
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.historyTime {
+  color: #777;
+  font-size: 0.8rem;
+}
+
+/* Mobile Styles for the History Component */
+@media (max-width: 768px) {
+  .historyContainer {
+    width: 100%;             /* Take full width */
+    min-height: 50vh;        /* Ensure it's tall enough to be its own section */
+    border-left: none;       /* Remove desktop side-border */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Add top divider */
+    
+    /* Extra padding at the bottom so the SideNav doesn't cover items */
+    padding: 40px 20px 100px 20px; 
+    
+    overflow-y: visible;     /* Let the main page handle the scrolling */
+    
+    /* Remove the fade mask on mobile; it can make text hard to read while scrolling */
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .historyContainer h3 {
+    text-align: center;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888; /* Subtle header for mobile */
+  }
+
+  .historyItem {
+    margin-bottom: 10px;
+    /* Optional: make items slightly wider on mobile */
+    width: 100%; 
+  }
+}

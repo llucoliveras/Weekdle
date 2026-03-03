@@ -1,0 +1,21 @@
+/* Info Page Styling */
+.infoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.infoCard {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  border: 1px solid #333;
+}
+
+.infoContainer h2 {
+  font-size: 2.5rem;
+  color: #fff;
+}

@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+/* Global Reset & Dark Theme Base */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.appWrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Main Content Area */
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: stretch;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .appWrapper {
+    flex-direction: column; /* Stack Content and Nav vertically */
   }
-  to {
-    transform: rotate(360deg);
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Start from the top, don't center */
+    align-items: center;
+    height: calc(100vh - 70px);  /* Subtract the bottom Nav height */
+    overflow-y: auto;
+    padding-top: 40px;           /* Gives the date some breathing room at the top */
   }
 }
