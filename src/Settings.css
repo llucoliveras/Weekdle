@@ -1,0 +1,78 @@
+.settingsContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.settingsContainer h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.settingsList {
+  background: #1e1e1e;
+  border-radius: 15px;
+  border: 1px solid #333;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.settingsItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #2a2a2a;
+  gap: 15px;
+}
+
+.settingsItem:last-child {
+  border-bottom: none;
+}
+
+.settingsInfo h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.settingsInfo p {
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.settingsSelect {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 8px 12px;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+}
+
+.settingsItem.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.togglePlaceholder {
+  width: 40px;
+  height: 20px;
+  background: #333;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .settingsContainer {
+    padding-top: 30px;
+    padding-bottom: 100px;
+  }
+}

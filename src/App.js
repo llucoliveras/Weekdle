@@ -3,18 +3,21 @@ import { useEffect, useState } from "react";
 import { Practice } from "./Practice.js";
 import { Information } from "./Information.js";
 import { SideNav } from "./SideNav.js";
+import { Settings } from "./Settings.js";
+import { useTranslation } from 'react-i18next';
 
-const days = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
 
 export default function App() {
+	const { t } = useTranslation();
+	const days = [
+		t("days.monday"),
+		t("days.tuesday"),
+		t("days.wednesday"),
+		t("days.thursday"),
+		t("days.friday"),
+		t("days.saturday"),
+		t("days.sunday")
+	];
 	const [view, setView] = useState("practice");
     const [date, setDate] = useState(null);
     const [correctDay, setCorrectDay] = useState(null);
@@ -62,9 +65,11 @@ export default function App() {
 						setHistory={setHistory}
 						generateNewDate={generateNewDate}
 					/>
-				) : (
+				) : view === "method" ? (
 					<Information />
-				)}
+				) : view === "settings" ? (
+					<Settings />
+				) : null}
 			</div>
 		</div>
 	);

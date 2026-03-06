@@ -1,21 +1,239 @@
-/* Info Page Styling */
 .infoContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.subtitle {
+  color: #888;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+.infoGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  width: 100%;
 }
 
 .infoCard {
   background: #1e1e1e;
-  padding: 20px;
+  padding: 25px;
   border-radius: 15px;
-  margin-top: 20px;
+  border: 1px solid #333;
+  transition: transform 0.2s ease;
+}
+
+.infoCard h3 {
+  margin-top: 0;
+  color: #00c853; /* Success green accent */
+  font-size: 1.3rem;
+}
+
+.codeList {
+  list-style: none;
+  padding: 0;
+}
+
+.codeList li {
+  padding: 8px 0;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.formula {
+  background: #121212;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #fff;
+  text-align: center;
+  margin: 10px 0;
+  border: 1px dashed #444;
+}
+
+.anchorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.anchorGrid div {
+  background: #2a2a2a;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.note {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 15px;
+}
+
+/* Mobile specific padding */
+@media (max-width: 768px) {
+  .infoContainer {
+    padding-top: 30px;
+    padding-bottom: 100px; /* Space for bottom nav */
+  }
+  
+  .infoContainer h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.stepList {
+  padding-left: 20px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.stepList li {
+  margin-bottom: 8px;
+}
+
+.exampleCard {
+  border: 1px solid #00c853; /* Highlight the example */
+  background: linear-gradient(145deg, #1e1e1e, #141414);
+}
+
+.exampleStep {
+  padding: 10px 0;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 0.95rem;
+}
+
+.exampleStep strong {
+  color: #00c853;
+  display: inline-block;
+  width: 100px;
+}
+
+.result {
+  border-bottom: none;
+  font-size: 1.1rem;
+  color: #fff;
+  padding-top: 15px;
+}
+
+.result strong {
+  width: auto;
+  color: #00c853;
+}
+
+.methodBox {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
   border: 1px solid #333;
 }
 
-.infoContainer h2 {
-  font-size: 2.5rem;
+.methodBox h4 {
+  margin-top: 0;
   color: #fff;
+  font-size: 1rem;
+}
+
+.smallText {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0;
+}
+
+.exampleStep strong {
+  color: #00c853;
+  display: inline-block;
+  min-width: 80px; /* Adjusted for mobile */
+}
+
+@media (max-width: 768px) {
+  .exampleStep strong {
+    display: block; /* Stacks label on top of value for thin screens */
+    margin-bottom: 2px;
+  }
+}
+
+/* Mnemonics Styling */
+.mnemonicSection {
+  background: rgba(0, 200, 83, 0.05);
+  border-left: 3px solid #00c853;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 0 10px 10px 0;
+}
+
+.mnemonicSection p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+}
+
+/* Walkthrough Step Styling */
+.walkthrough {
+  margin-top: 15px;
+}
+
+.walkthroughStep {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  align-items: flex-start;
+}
+
+.stepNum {
+  background: #00c853;
+  color: #121212;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.walkthroughStep p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.final {
+  background: #2a2a2a;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 1px solid #444;
+}
+
+@media (max-width: 768px) {
+  .walkthroughStep {
+    gap: 10px;
+  }
+}
+
+.exampleChoice {
+  list-style: none;
+  padding: 10px 0 0 0;
+  margin: 5px 0 0 0;
+  font-size: 0.85rem;
+  color: #bbb;
+}
+
+.exampleChoice li {
+  margin-bottom: 5px;
+  padding-left: 10px;
+  border-left: 2px solid #333;
 }

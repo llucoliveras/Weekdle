@@ -1,0 +1,128 @@
+{
+    "days": {
+        "sunday": "Sunday",
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday"
+    },
+    "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+    },
+    "info": {
+        "title": "The Doomsday Method",
+        "subtitle": "John Conway's algorithm for mental calendar calculation.",
+        "step1": {
+            "title": "Step 1: The Century Anchor",
+            "desc": "Memorize the anchor day for your century. Note that every",
+            "loopHighlight": "400 years",
+            "loopDesc": "the cycle repeats."
+        },
+        "step2": {
+            "title": "Step 2: The Year Code",
+            "desc": "Find the \"Year Index\" for the last two digits of your year (YY) using either method:",
+            "methodA": {
+                "name": "Method A: The Original (Division)",
+                "formula": "(YY / 12) + (Remainder) + (Remainder / 4)",
+                "desc": "Divide the year by 12, add the remainder, then add how many times 4 goes into that remainder."
+            },
+            "methodB": {
+                "name": "Method B: The \"Odd + 11\" (Mental Logic)",
+                "s1": "If the year is odd, add",
+                "s2": "Divide by",
+                "s2b": "If result is odd, add",
+                "s2c": "again",
+                "s3": "Find the",
+                "mod7": "Remainder of 7",
+                "s4": "",
+                "multiple7": "Subtract that remainder from next multiple of 7"
+            }
+        },
+        "step3": {
+            "title": "Step 3: Month Anchors (Mnemonics)",
+            "desc": "These specific dates always fall on the year's \"Doomsday\":",
+            "mnem1": {
+                "label": "The Even Months:",
+                "val": "4/4, 6/6, 8/8, 10/10, 12/12 (Easy pairs!)"
+            },
+            "mnem2": {
+                "label": "9-to-5 at 7-11:",
+                "val": "5/9 & 9/5, 7/11 & 11/7 (The flip dates!)"
+            },
+            "mnem3": {
+                "label": "The Pi Day:",
+                "val": "March 14 (3/14 or \"March 0\")"
+            },
+            "mnem4": {
+                "label": "The Others:",
+                "val": "Jan 3/4* and Feb 28/29*"
+            }
+        },
+        "example": {
+            "title": "Detailed Walkthrough: July 20, 1969",
+            "s1": {
+                "label": "Century Anchor:",
+                "desc": "1969 is in the 1900s. The anchor is"
+            },
+            "s2": {
+                "label": "Year Index (69):",
+                "desc": "Both methods give the same result:",
+                "mA": {
+                    "label": "Method A:",
+                    "val": "(69/12 = 5) + (remainder 9) + (9/4 = 2). 5 + 9 + 2 = 16. 16 mod 7 ="
+                },
+                "mB": {
+                    "label": "Method B:",
+                    "val": "69+11=80. 80/2=40. 40 mod 7=5. (7-5) ="
+                }
+            },
+            "s3": {
+                "label": "Calculate Year Doomsday:",
+                "desc": "Add Century(3) + Year(2) =",
+                "result": "In 1969, all anchors are"
+            },
+            "s4": {
+                "label": "Target Date:",
+                "desc": "July's anchor is",
+                "diff": "From the 11th to the 20th is",
+                "days": "days",
+                "mod": "9 mod 7 =",
+                "past": "past the anchor"
+            },
+            "final": {
+                "label": "Final Result:",
+                "event": "The moon landing was a Sunday!"
+            }
+        }
+    },
+    "history": {
+        "title": "History",
+        "empty": "No guesses yet",
+        "youGuessed": "You guessed",
+        "correct": "Correct"
+    },
+    "settings": {
+        "title": "Settings",
+        "language": {
+            "label": "Language",
+            "desc": "Select your preferred language"
+        },
+        "theme": {
+            "label": "Theme",
+            "desc": "Dark mode / Light mode (Coming Soon)"
+        }
+    }
+}

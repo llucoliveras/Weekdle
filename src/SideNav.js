@@ -16,6 +16,12 @@ export const SideNav = ({ view, setView }) => {
             >
                 The Method
             </button>
+            <button 
+                className={`navItem ${view === 'settings' ? 'active' : ''}`} 
+                onClick={() => setView('settings')}
+            >
+                Settings
+            </button>
         </nav>
     )
 }
