@@ -1,0 +1,49 @@
+{
+  "title": "El Mètode Doomsday",
+  "subtitle": "L'algoritme de John Conway per al càlcul mental del calendari.",
+  "step1": {
+    "title": "Pas 1: L'àncora del segle",
+    "desc": "Memoritza el dia àncora del teu segle. Tingues en compte que cada",
+    "loopHighlight": "400 anys",
+    "loopDesc": "el cicle es repeteix."
+  },
+  "step2": {
+    "title": "Pas 2: El codi de l'any",
+    "desc": "Troba l'índex de l'any per a les dues últimes xifres de l'any (AA) utilitzant qualsevol d'aquests mètodes:",
+    "methodA": {
+      "name": "Mètode A: L'original (Divisió)",
+      "formula": "(AA / 12) + (Residu) + (Residu / 4)",
+      "desc": "Divideix l'any per 12, suma-hi el residu i, després, suma quantes vegades el 4 cap en aquest residu."
+    },
+    "methodB": {
+      "name": "Mètode B: L'imparell + 11 (Lògica mental)",
+      "s1": "Si l'any és imparell, suma-hi",
+      "s2": "Divideix per",
+      "s2b": "Si el resultat és imparell, torna a sumar-hi",
+      "s2c": "una altra vegada",
+      "s3": "Troba el",
+      "mod7": "Residu de 7",
+      "s4": "",
+      "multiple7": "Resta aquest residu del següent múltiple de 7"
+    }
+  },
+  "step3": {
+    "title": "Pas 3: Àncores mensuals (Mnemotècnia)",
+    "desc": "Aquestes dates específiques sempre cauen en el dia Doomsday de l'any:",
+    "mnem1": { "label": "Els mesos parells:", "val": "4/4, 6/6, 8/8, 10/10, 12/12 (Parelles fàcils!)" },
+    "mnem2": { "label": "De 9 a 5 al 7-11:", "val": "5/9 i 9/5, 7/11 i 11/7 (Dates invertides!)" },
+    "mnem3": { "label": "El dia de Pi:", "val": "14 de març (14/3 o \"0 de març\")" },
+    "mnem4": { "label": "Els altres:", "val": "3/4* de gen. i 28/29* de febr." }
+  },
+  "example": {
+    "title": "Exemple detallat: 20 de juliol de 1969",
+    "s1": { "label": "Àncora del segle:", "desc": "El 1969 és al segle XX (anys 1900). L'àncora és" },
+    "s2": { "label": "Índex de l'any (69):", "desc": "Tots dos mètodes donen el mateix resultat:", 
+      "mA": { "label": "Mètode A:", "val": "(69/12 = 5) + (residu 9) + (9/4 = 2). 5 + 9 + 2 = 16. 16 mod 7 =" }, 
+      "mB": { "label": "Mètode B:", "val": "69+11=80. 80/2=40. 40 mod 7=5. (7-5) =" } 
+    },
+    "s3": { "label": "Calcula el Doomsday de l'any:", "desc": "Suma Segle(3) + Any(2) =", "result": "Al 1969, totes les àncores són" },
+    "s4": { "label": "Data objectiu:", "desc": "L'àncora de juliol és l'11. De l'11 al 20 hi ha", "diff": "", "days": "dies", "mod": "9 mod 7 =", "past": "després de l'àncora" },
+    "final": { "label": "Resultat final:", "event": "L'arribada a la lluna va ser un diumenge!" }
+  }
+}

@@ -1,23 +1,50 @@
-import i18next from 'i18next';
+// i18n.js
+import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import en from './locales/en/translation.json';
-import es from './locales/es/translation.json';
 
-i18next
-    .use(LanguageDetector)
+// Imports
+import enCommon from './locales/en/common.json';
+import enInfo from './locales/en/info.json';
+import enHistory from './locales/en/history.json';
+import enSettings from './locales/en/settings.json';
+import esCommon from './locales/es/common.json';
+import esInfo from './locales/es/info.json';
+import esHistory from './locales/es/history.json';
+import esSettings from './locales/es/settings.json';
+import caCommon from './locales/ca/common.json';
+import caInfo from './locales/ca/info.json';
+import caHistory from './locales/ca/history.json';
+import caSettings from './locales/ca/settings.json';
+
+i18n
     .use(initReactI18next)
     .init({
         resources: {
             en: {
-                translation: en
+                translation: {
+                    ...enCommon,
+                    info: enInfo,
+                    history: enHistory,
+                    settings: enSettings
+                }
             },
             es: {
-                translation: es
+                translation: {
+                    ...esCommon,
+                    info: esInfo,
+                    history: esHistory,
+                    settings: esSettings
+                }
+            },
+            ca: {
+                translation: {
+                    ...caCommon,
+                    info: caInfo,
+                    history: caHistory,
+                    settings: caSettings
+                }
             }
         },
         fallbackLng: 'en',
-        interpolation: {
-            escapeValue: false
-        }
+        interpolation: { escapeValue: false }
     });

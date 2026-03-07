@@ -1,0 +1,11 @@
+{
+  "title": "Configuració",
+  "language": {
+    "label": "Idioma",
+    "desc": "Selecciona el teu idioma preferit"
+  },
+  "theme": {
+    "label": "Tema",
+    "desc": "Mode fosc / Mode clar (Properament)"
+  }
+}

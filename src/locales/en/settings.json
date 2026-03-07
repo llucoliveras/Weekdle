@@ -1,0 +1,11 @@
+{
+  "title": "Settings",
+  "language": {
+    "label": "Language",
+    "desc": "Select your preferred language"
+  },
+  "theme": {
+    "label": "Theme",
+    "desc": "Dark mode / Light mode (Coming Soon)"
+  }
+}

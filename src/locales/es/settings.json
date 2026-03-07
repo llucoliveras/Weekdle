@@ -1,0 +1,11 @@
+{
+  "title": "Ajustes",
+  "language": {
+    "label": "Idioma",
+    "desc": "Selecciona tu idioma preferido"
+  },
+  "theme": {
+    "label": "Tema",
+    "desc": "Modo oscuro / Modo claro (Próximamente)"
+  }
+}

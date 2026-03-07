@@ -28,6 +28,7 @@ export const Settings = () => {
                         >
                         <option value="en">English</option>
                         <option value="es">Español</option>
+                        <option value="ca">Català</option>
                         </select>
                     </div>
                 </div>
