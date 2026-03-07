@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Guess-The-Day/static/css/main.5087427a.css",
-    "main.js": "/Guess-The-Day/static/js/main.1b9232a2.js",
+    "main.js": "/Guess-The-Day/static/js/main.52d49931.js",
     "static/js/453.412154e4.chunk.js": "/Guess-The-Day/static/js/453.412154e4.chunk.js",
     "index.html": "/Guess-The-Day/index.html",
     "main.5087427a.css.map": "/Guess-The-Day/static/css/main.5087427a.css.map",
-    "main.1b9232a2.js.map": "/Guess-The-Day/static/js/main.1b9232a2.js.map",
+    "main.52d49931.js.map": "/Guess-The-Day/static/js/main.52d49931.js.map",
     "453.412154e4.chunk.js.map": "/Guess-The-Day/static/js/453.412154e4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5087427a.css",
-    "static/js/main.1b9232a2.js"
+    "static/js/main.52d49931.js"
   ]
 }
