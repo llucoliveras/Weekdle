@@ -1,9 +1,10 @@
 import './Practice.css';
 import { History } from './History';
+import { useTranslation } from 'react-i18next';
 
 export const Practice = (props) => {
     const {
-        days,
+        daysOfWeek,
         date,
         answered,
         setAnswered,
@@ -14,50 +15,47 @@ export const Practice = (props) => {
         setHistory,
         generateNewDate,
     } = props;
-
-    const handleClick = (day) => {
+    
+    const { t } = useTranslation();
+    
+    // Inside Practice.js -> handleClick
+    const handleClick = (dayKey) => { // 'dayKey' is "days.monday", etc.
         if (answered) return;
 
         const now = new Date();
-
-        setSelectedDay(day);
+        setSelectedDay(dayKey);
         setAnswered(true);
 
-        const isCorrect = day === correctDay;
+        // Get the correct index (0-6) from JS Date
+        const jsDayIndex = date.getDay(); 
+        // Adjust to match your array (Monday = 0, Sunday = 6)
+        const adjustedCorrectIndex = (jsDayIndex + 6) % 7;
 
         setHistory((prev) => [
             {
                 date: formatDate(date),
-                guess: day,
-                correct: correctDay,
-                isCorrect,
+                guess: dayKey, // Save the key "days.monday", not the translated word
+                correct: daysOfWeek[adjustedCorrectIndex], // Save the key "days.sunday", etc.
+                isCorrect: dayKey === daysOfWeek[adjustedCorrectIndex],
                 time: formatTime(now),
             },
             ...prev,
         ]);
-    }
+    };
 
-    const renderButton = (day) => {
+    const renderButton = (dayKey) => {
         let buttonClass = "backgroundWhite";
-
         if (answered) {
-            if (day === correctDay) {
-                buttonClass = "backgroundGreen";
-            } else if (day === selectedDay) {
-                buttonClass = "backgroundRed";
-            }
+            if (dayKey === correctDay) buttonClass = "backgroundGreen";
+            else if (dayKey === selectedDay) buttonClass = "backgroundRed";
         }
 
         return (
-            <button
-                key={day}
-                onClick={() => handleClick(day)}
-                className={`button ${buttonClass}`}
-            >
-                {day}
+            <button key={dayKey} onClick={() => handleClick(dayKey)} className={`button ${buttonClass}`}>
+                {t(dayKey)}
             </button>
         );
-    }
+    };
 
     const formatDate = (date) => {
         return date.toLocaleDateString("en-GB");
@@ -86,10 +84,10 @@ export const Practice = (props) => {
                 </div>
 
                 <div className="buttonGrid">
-                    {days.map((day) => renderButton(day))}
+                    {daysOfWeek.map((dayKey) => renderButton(dayKey))} 
                 </div>
             </div>
-            <History history={history} />
+            <History history={history} daysOfWeek={daysOfWeek} />
         </>
     )
 }

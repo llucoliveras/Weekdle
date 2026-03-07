@@ -9,14 +9,14 @@ import { useTranslation } from 'react-i18next';
 
 export default function App() {
 	const { t } = useTranslation();
-	const days = [
-		t("days.monday"),
-		t("days.tuesday"),
-		t("days.wednesday"),
-		t("days.thursday"),
-		t("days.friday"),
-		t("days.saturday"),
-		t("days.sunday")
+	const daysOfWeek = [
+		"days.monday",
+		"days.tuesday",
+		"days.wednesday",
+		"days.thursday",
+		"days.friday",
+		"days.saturday",
+		"days.sunday"
 	];
 	const [view, setView] = useState("practice");
     const [date, setDate] = useState(null);
@@ -38,7 +38,7 @@ export default function App() {
 		const adjustedIndex = (jsDayIndex + 6) % 7;
 
 		setDate(randomDate);
-		setCorrectDay(days[adjustedIndex]);
+		setCorrectDay(daysOfWeek[adjustedIndex]);
 		setSelectedDay(null);
 		setAnswered(false);
 	}
@@ -54,7 +54,7 @@ export default function App() {
 			<div className="mainContent">
 				{view === "practice" ? (
 					<Practice
-						days={days}
+						daysOfWeek={daysOfWeek}
 						date={date}
 						answered={answered}
 						setAnswered={setAnswered}

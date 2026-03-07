@@ -1,7 +1,7 @@
 import './History.css';
 import { useTranslation } from 'react-i18next';
 
-export const History = ({ history }) => {
+export const History = ({ history, daysOfWeek }) => {
     const { t } = useTranslation();
 
     return (
@@ -15,11 +15,11 @@ export const History = ({ history }) => {
                         <span className="historyTime">{entry.time}</span>
                     </div>
                     <div>
-                        {t('history.youGuessed')}: {t(`days.${entry.guess.toLowerCase()}`)}
+                        {t('history.youGuessed')}: {t(entry.guess)}
                     </div>
                     {!entry.isCorrect && (
                         <div>
-                            {t('history.correct')}: {t(`days.${entry.correct.toLowerCase()}`)}
+                            {t('history.correct')}: {t(entry.correct)}
                         </div>
                     )}
                 </div>
