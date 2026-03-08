@@ -5,11 +5,13 @@ import home from './home.json';
 import nav from './nav.json';
 import settings from './settings.json';
 
-export default {
+const tranlsations = {
     ...common,
     info,
     history,
     home,
     nav,
     settings
-};
+}
+
+export default tranlsations;

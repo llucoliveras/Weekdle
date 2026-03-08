@@ -5,7 +5,7 @@ import home from './home.json';
 import nav from './nav.json';
 import settings from './settings.json';
 
-export default {
+const translations = {
     ...common,
     info,
     history,
@@ -13,3 +13,5 @@ export default {
     nav,
     settings
 };
+
+export default translations;
