@@ -16,7 +16,7 @@ export const SideNav = ({ view, setView }) => {
 
     return (
         <nav className="sideNav">
-            <div className="navLogo">📅 GuessDay</div>
+            <div className="navLogo">📅 Weekdle</div>
 
             {
                 navItems.map(item => (
