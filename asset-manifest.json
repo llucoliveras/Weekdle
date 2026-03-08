@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Guess-The-Day/static/css/main.5087427a.css",
-    "main.js": "/Guess-The-Day/static/js/main.52d49931.js",
-    "static/js/453.412154e4.chunk.js": "/Guess-The-Day/static/js/453.412154e4.chunk.js",
-    "index.html": "/Guess-The-Day/index.html",
-    "main.5087427a.css.map": "/Guess-The-Day/static/css/main.5087427a.css.map",
-    "main.52d49931.js.map": "/Guess-The-Day/static/js/main.52d49931.js.map",
-    "453.412154e4.chunk.js.map": "/Guess-The-Day/static/js/453.412154e4.chunk.js.map"
+    "main.css": "/Weekdle/static/css/main.7c81b336.css",
+    "main.js": "/Weekdle/static/js/main.1de6eca1.js",
+    "static/js/453.7e01cb41.chunk.js": "/Weekdle/static/js/453.7e01cb41.chunk.js",
+    "index.html": "/Weekdle/index.html",
+    "main.7c81b336.css.map": "/Weekdle/static/css/main.7c81b336.css.map",
+    "main.1de6eca1.js.map": "/Weekdle/static/js/main.1de6eca1.js.map",
+    "453.7e01cb41.chunk.js.map": "/Weekdle/static/js/453.7e01cb41.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5087427a.css",
-    "static/js/main.52d49931.js"
+    "static/css/main.7c81b336.css",
+    "static/js/main.1de6eca1.js"
   ]
 }
