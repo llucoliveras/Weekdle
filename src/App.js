@@ -1,4 +1,5 @@
 import "./App.css";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { SideNav } from "./pages/SideNav/SideNav.js";
 import { Home } from "./pages/Home/Home.js";
 import { Practice } from "./pages/Practice/Practice.js";
@@ -6,8 +7,7 @@ import { Information } from "./pages/Information/Information.js";
 import { Settings } from "./pages/Settings/Settings.js";
 
 export default function App() {
-	const { t } = useTranslation();
-	const daysOfWeek = [
+	const daysOfWeek = useMemo(() => [
 		"days.monday",
 		"days.tuesday",
 		"days.wednesday",
@@ -15,8 +15,8 @@ export default function App() {
 		"days.friday",
 		"days.saturday",
 		"days.sunday"
-	];
-	const [view, setView] = useState("practice");
+	], []);
+	const [view, setView] = useState("home");
     const [date, setDate] = useState(null);
     const [correctDay, setCorrectDay] = useState(null);
     const [selectedDay, setSelectedDay] = useState(null);
@@ -30,7 +30,7 @@ export default function App() {
 		return new Date(randomTime);
 	}
 
-	const generateNewDate = () => {
+	const generateNewDate = useCallback(() => {
 		const randomDate = getRandomDate();
 		const jsDayIndex = randomDate.getUTCDay();
 		const adjustedIndex = (jsDayIndex + 6) % 7;
@@ -39,22 +39,21 @@ export default function App() {
 		setCorrectDay(daysOfWeek[adjustedIndex]);
 		setSelectedDay(null);
 		setAnswered(false);
-	}
+	}, [daysOfWeek])
 
     useEffect(() => {
         if (!date) generateNewDate();
-    }, [date]);
+    }, [date, generateNewDate]);
 
 	return (
-		<div className="appWrapper">
-			<SideNav view={view} setView={setView} />
-
-			<div className="mainContent">
+        <div className="appWrapper">
+            <SideNav view={view} setView={setView} />
+            <div className="mainContent">
                 {/* Add the conditional rendering for home */}
                 {view === "home" ? (
                     <Home setView={setView} />
                 ) : view === "practice" ? (
-					<Practice
+                    <Practice
 						daysOfWeek={daysOfWeek}
 						date={date}
 						answered={answered}
@@ -65,18 +64,18 @@ export default function App() {
 						history={history}
 						setHistory={setHistory}
 						generateNewDate={generateNewDate}
-					/>
+                    />
                 ) : view === "information" ? (
-					<Information />
-				) : view === "settings" ? (
-					<Settings />
+                    <Information />
+                ) : view === "settings" ? (
+                    <Settings />
                 ) : (
                     <div className="container">
                         <h2>Coming Soon</h2>
                         <p>The {view} page is under construction.</p>
                     </div>
                 )}
-			</div>
-		</div>
-	);
+            </div>
+        </div>
+    );
 }
