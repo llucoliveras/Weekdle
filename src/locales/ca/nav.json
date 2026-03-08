@@ -1,5 +1,8 @@
 {
+    "home": "Inici",
     "practice": "Pràctica",
     "information": "Informació",
+    "solver": "Solucionador",
+    "others": "Altres",
     "settings": "Configuració"
 }

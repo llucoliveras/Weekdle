@@ -1,0 +1,29 @@
+{
+    "hero": {
+        "badge": "Presentamos Weekdle",
+        "titleMain": "Domina el",
+        "titleAccent": "Calendario.",
+        "subtitle": "Entrena tu cerebro para calcular el día de la semana de cualquier fecha de la historia.",
+        "btnStart": "Empezar a entrenar",
+        "btnHow": "Cómo funciona"
+    },
+    "features": {
+        "practice": {
+            "title": "Modo Práctica",
+            "desc": "El núcleo de Weekdle. Te damos una fecha aleatoria y tú adivinas el día de la semana lo más rápido posible."
+        },
+        "learn": {
+            "title": "Aprende el Método",
+            "desc": "¡No te limites a adivinar! Visita la página de Información para aprender el 'Algoritmo de la Fi del Mundo'."
+        },
+        "solver": {
+            "title": "Calculadora",
+            "desc": "¿Necesitas consultar una fecha específica? Usa el calculador para ver el desglose paso a paso."
+        }
+    },
+    "footer": {
+        "feedback": "Respuesta al instante",
+        "progress": "Sigue tu progreso",
+        "range": "1900 - 2026"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "hero": {
+        "badge": "Us presentem Weekdle",
+        "titleMain": "Domina el",
+        "titleAccent": "Calendari.",
+        "subtitle": "Entrena el teu cervell per calcular el dia de la setmana de qualsevol data de la història.",
+        "btnStart": "Comença a entrenar",
+        "btnHow": "Com funciona"
+    },
+    "features": {
+        "practice": {
+            "title": "Mode Pràctica",
+            "desc": "L'essència de Weekdle. Et donem una data aleatòria i tu endevines el dia de la setmana tan ràpid com puguis."
+        },
+        "learn": {
+            "title": "Aprèn el Mètode",
+            "desc": "No et limitis a suposar! Visita la pàgina d'Informació per aprendre l'algorisme i resoldre qualsevol data."
+        },
+        "solver": {
+            "title": "Calculadora",
+            "desc": "Necessites consultar una data específica? Utilitza la calculadora per veure el desglossament pas a pas."
+        }
+    },
+    "footer": {
+        "feedback": "Resposta a l'instant",
+        "progress": "Segueix el teu progrés",
+        "range": "1900 - 2026"
+    }
+}

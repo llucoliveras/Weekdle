@@ -1,5 +1,8 @@
 {
+    "home": "Home",
     "practice": "Practice",
     "information": "Information",
+    "solver": "Solver",
+    "others": "Others",
     "settings": "Settings"
 }

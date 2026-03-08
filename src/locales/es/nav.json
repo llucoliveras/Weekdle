@@ -1,5 +1,8 @@
 {
+    "home": "Inicio",
     "practice": "Práctica",
     "information": "Información",
+    "solver": "Solucionador",
+    "others": "Otros",
     "settings": "Ajustes"
 }

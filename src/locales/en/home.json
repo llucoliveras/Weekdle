@@ -1,0 +1,29 @@
+{
+    "hero": {
+        "badge": "Introducing Weekdle",
+        "titleMain": "Master the",
+        "titleAccent": "Calendar.",
+        "subtitle": "Train your brain to calculate the day of the week for any date in history.",
+        "btnStart": "Start Training",
+        "btnHow": "How it works"
+    },
+    "features": {
+        "practice": {
+            "title": "Practice Mode",
+            "desc": "The core of Weekdle. We give you a random date, and you guess the day of the week as fast as you can."
+        },
+        "learn": {
+            "title": "Learn the Method",
+            "desc": "Don't just guess! Visit the Information page to learn the 'Doomsday Algorithm' and solve any date in seconds."
+        },
+        "solver": {
+            "title": "Date Solver",
+            "desc": "Need to check a specific date? Use the solver to see the step-by-step breakdown of the calculation."
+        }
+    },
+    "footer": {
+        "feedback": "Instant Feedback",
+        "progress": "Track Progress",
+        "range": "1900 - 2026"
+    }
+}
