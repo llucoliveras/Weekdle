@@ -28,11 +28,25 @@
   border-radius: 8px;
   transition: all 0.2s;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .navItem:hover {
   color: #fff;
   background-color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+.navItem:hover svg {
+  color: #3b82f6; /* Blau vibrant (pots canviar-lo pel color de la teva app) */
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+  transform: scale(1.1); /* La icona creix una mica */
+  transition: all 0.3s ease;
 }
 
 .navItem.active {
@@ -41,11 +55,16 @@
   font-weight: 600;
 }
 
+.navItem.active svg {
+  color: #fff;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
 /* Mobile styles for SideNav */
 @media (max-width: 768px) {
   .sideNav {
     width: 100%;
-    height: 70px;
+    height: 60px;
     flex-direction: row; /* Horizontal buttons */
     padding: 0;
     justify-content: space-around;
@@ -53,17 +72,54 @@
     border-right: none;
     border-top: 1px solid #222;
     order: 2; /* Moves the Nav to the bottom of the flex container */
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   .navLogo {
-    display: none; /* Hide logo on mobile to save space */
+    display: none;
   }
 
   .navItem {
-    margin-bottom: 0;
-    flex: 1;
-    text-align: center;
-    border-radius: 0;
-    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 0;
+  }
+
+  .navItem span {
+    display: none; 
+  }
+
+  .navItem svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+  }
+  
+  .navItem.active svg {
+    transform: scale(1.15);
+    color: #3b82f6; /* O el color que prefereixis */
+  }
+
+  .navItem:hover {
+    transform: none; 
+    background-color: transparent;
+  }
+
+  .navItem:active {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+
+  .navItem.active::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    width: 4px;
+    height: 4px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #3b82f6;
   }
 }

@@ -75,4 +75,36 @@
     padding-top: 30px;
     padding-bottom: 100px;
   }
+  
+  .sideNav {
+    width: 100%;
+    /* Remove the fixed height or change to min-height */
+    height: auto; 
+    min-height: 70px;
+    
+    flex-direction: row;
+    padding-top: 5px;
+    
+    /* THE FIX: Adds extra padding at the bottom for mobile system bars */
+    padding-bottom: env(safe-area-inset-bottom); 
+    
+    justify-content: space-around;
+    align-items: stretch; /* Stretch items to fill the height */
+    border-right: none;
+    border-top: 1px solid #222;
+    order: 2;
+    background-color: #0a0a0a;
+  }
+
+  .navItem {
+    margin-bottom: 0;
+    flex: 1;
+    text-align: center;
+    border-radius: 0;
+    /* Use padding instead of height 100% for better vertical centering */
+    padding: 15px 5px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

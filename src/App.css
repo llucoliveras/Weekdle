@@ -13,7 +13,9 @@ html, body, #root {
 
 .appWrapper {
   display: flex;
+  flex-direction: row;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -35,6 +37,7 @@ html, body, #root {
 
   .mainContent {
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: flex-start; /* Start from the top, don't center */
     align-items: center;
