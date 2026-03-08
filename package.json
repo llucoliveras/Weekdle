@@ -1,6 +1,6 @@
 {
-  "name": "guess-the-day",
-  "homepage": "https://llucoliveras.github.io/Guess-The-Day",
+  "name": "weekdle",
+  "homepage": "https://llucoliveras.github.io/Weekdle",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
