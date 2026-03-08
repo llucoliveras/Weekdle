@@ -1,11 +1,9 @@
 import "./App.css";
-import { useEffect, useState } from "react";
-import { Practice } from "./Practice.js";
-import { Information } from "./Information.js";
-import { SideNav } from "./SideNav.js";
-import { Settings } from "./Settings.js";
-import { useTranslation } from 'react-i18next';
-
+import { SideNav } from "./pages/SideNav/SideNav.js";
+import { Home } from "./pages/Home/Home.js";
+import { Practice } from "./pages/Practice/Practice.js";
+import { Information } from "./pages/Information/Information.js";
+import { Settings } from "./pages/Settings/Settings.js";
 
 export default function App() {
 	const { t } = useTranslation();
@@ -52,7 +50,10 @@ export default function App() {
 			<SideNav view={view} setView={setView} />
 
 			<div className="mainContent">
-				{view === "practice" ? (
+                {/* Add the conditional rendering for home */}
+                {view === "home" ? (
+                    <Home setView={setView} />
+                ) : view === "practice" ? (
 					<Practice
 						daysOfWeek={daysOfWeek}
 						date={date}
@@ -65,11 +66,16 @@ export default function App() {
 						setHistory={setHistory}
 						generateNewDate={generateNewDate}
 					/>
-				) : view === "method" ? (
+                ) : view === "information" ? (
 					<Information />
 				) : view === "settings" ? (
 					<Settings />
-				) : null}
+                ) : (
+                    <div className="container">
+                        <h2>Coming Soon</h2>
+                        <p>The {view} page is under construction.</p>
+                    </div>
+                )}
 			</div>
 		</div>
 	);
