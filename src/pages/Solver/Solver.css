@@ -1,0 +1,38 @@
+/* Solver.css */
+
+.bigDateInput {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #ffffff;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+/* When a valid date is detected, the input text changes color */
+.bigDateInput.valid {
+    color: var(--primary);
+    text-shadow: 0 0 15px var(--primary-glow);
+}
+
+.bigDateInput::placeholder {
+    color: rgba(255, 255, 255, 0.05);
+}
+
+.dateInputWrapper {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+    transition: border-color 0.3s ease;
+    display: inline-block;
+    min-width: 350px; /* Increased slightly */
+    max-width: 90vw;  /* Prevents going off-screen on mobile */
+}
+
+.dateInputWrapper:focus-within {
+    border-color: var(--primary);
+}

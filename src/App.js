@@ -5,6 +5,7 @@ import { Home } from "./pages/Home/Home.js";
 import { Practice } from "./pages/Practice/Practice.js";
 import { Information } from "./pages/Information/Information.js";
 import { Settings } from "./pages/Settings/Settings.js";
+import { Solver } from "./pages/Solver/Solver.js";
 
 export default function App() {
 	const daysOfWeek = useMemo(() => [
@@ -76,7 +77,9 @@ export default function App() {
                     <Information />
                 ) : view === "settings" ? (
                     <Settings />
-                ) : (
+                ) : view === "solver" ? (
+					<Solver	/>
+				) : (
                     <div className="container">
                         <h2>Coming Soon</h2>
                         <p>The {view} page is under construction.</p>

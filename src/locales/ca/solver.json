@@ -1,0 +1,7 @@
+{
+    "title": "Calculadora de Dates",
+    "prompt": "Introdueix una data per trobar el dia",
+    "placeholder": "DD/MM/YYYY",
+    "resultPrefix": "Aquell dia va ser un",
+    "learnHow": "Vols aprendre els càlculs? Consulta la pagina de Informació!"
+}

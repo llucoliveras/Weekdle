@@ -4,6 +4,7 @@ import history from './history.json';
 import home from './home.json';
 import nav from './nav.json';
 import settings from './settings.json';
+import solver from './solver.json';
 
 const tranlsations = {
     ...common,
@@ -11,7 +12,8 @@ const tranlsations = {
     history,
     home,
     nav,
-    settings
+    settings,
+    solver
 }
 
 export default tranlsations;

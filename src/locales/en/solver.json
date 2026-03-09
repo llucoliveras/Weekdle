@@ -1,0 +1,7 @@
+{
+  "title": "Date Solver",
+  "prompt": "Enter a date to find the day",
+  "placeholder": "DD/MM/YYYY",
+  "resultPrefix": "That day was a",
+  "learnHow": "Want to learn the math? Check the Information page!"
+}

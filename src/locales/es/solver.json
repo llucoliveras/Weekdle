@@ -1,0 +1,7 @@
+{
+    "title": "Solver de Fechas",
+    "prompt": "Introduce una fecha para encontrar el día",
+    "placeholder": "DD/MM/YYYY",
+    "resultPrefix": "Ese día fue un",
+    "learnHow": "¿Quieres aprender el càlculo? ¡Consulta la página de Información!"
+}
