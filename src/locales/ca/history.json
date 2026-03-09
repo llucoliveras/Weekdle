@@ -2,5 +2,16 @@
   "title": "Historial",
   "empty": "Encara no hi ha intents",
   "youGuessed": "Has triat",
-  "correct": "Correcte"
+  "correct": "Correcte",
+  "time": {
+    "justNow": "Ara mateix",
+    "second": "fa {{count}} segon",
+    "second_plural": "fa {{count}} segons",
+    "minute": "fa {{count}} minut",
+    "minute_plural": "fa {{count}} minuts",
+    "hour": "fa {{count}} hora",
+    "hour_plural": "fa {{count}} hores",
+    "day": "fa {{count}} dia",
+    "day_plural": "fa {{count}} dies"
+  }
 }

@@ -2,5 +2,18 @@
   "title": "Historial",
   "empty": "Aún no hay intentos",
   "youGuessed": "Tu respuesta",
-  "correct": "Correcto"
+  "correct": "Correcto",
+  "time": {
+    "justNow": "Justo ahora",
+    "second": "hace {{count}} segundo",
+    "second_plural": "hace {{count}} segundos",
+    "minute": "hace {{count}} minuto",
+    "minute_plural": "hace {{count}} minutos",
+    "hour": "hace {{count}} hora",
+    "hour_plural": "hace {{count}} horas",
+    "day": "ayer",
+    "day_plural": "hace {{count}} días",
+    "week": "la semana pasada",
+    "week_plural": "hace {{count}} semanas"
+  }
 }

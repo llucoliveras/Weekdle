@@ -22,7 +22,6 @@ export const Practice = (props) => {
     const handleClick = (dayKey) => { // 'dayKey' is "days.monday", etc.
         if (answered) return;
 
-        const now = new Date();
         setSelectedDay(dayKey);
         setAnswered(true);
 
@@ -30,15 +29,18 @@ export const Practice = (props) => {
         const jsDayIndex = date.getDay(); 
         // Adjust to match your array (Monday = 0, Sunday = 6)
         const adjustedCorrectIndex = (jsDayIndex + 6) % 7;
+        const correctDay = daysOfWeek[adjustedCorrectIndex]; // This is the correct day key, e.g., "days.sunday"
 
-        setHistory((prev) => [
-            {
+        const attempt = {
                 date: formatDate(date),
                 guess: dayKey, // Save the key "days.monday", not the translated word
-                correct: daysOfWeek[adjustedCorrectIndex], // Save the key "days.sunday", etc.
-                isCorrect: dayKey === daysOfWeek[adjustedCorrectIndex],
-                time: formatTime(now),
-            },
+                correct: correctDay, // Save the key "days.sunday", etc.
+                isCorrect: dayKey === correctDay,
+                timestamp: Date.now(),
+            };
+
+        setHistory((prev) => [
+            attempt,
             ...prev,
         ]);
     };
@@ -59,14 +61,6 @@ export const Practice = (props) => {
 
     const formatDate = (date) => {
         return date.toLocaleDateString("en-GB");
-    }
-
-    const formatTime = (date) => {
-        const hours = String(date.getHours()).padStart(2, "0");
-        const minutes = String(date.getMinutes()).padStart(2, "0");
-        const seconds = String(date.getSeconds()).padStart(2, "0");
-
-        return `${hours}:${minutes}:${seconds}`;
     }
 
     return (

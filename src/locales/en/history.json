@@ -2,5 +2,18 @@
   "title": "History",
   "empty": "No guesses yet",
   "youGuessed": "You guessed",
-  "correct": "Correct"
+  "correct": "Correct",
+  "time": {
+    "justNow": "Just now",
+    "second": "a second ago",
+    "second_plural": "{{count}} seconds ago",
+    "minute": "a minute ago",
+    "minute_plural": "{{count}} minutes ago",
+    "hour": "an hour ago",
+    "hour_plural": "{{count}} hours ago",
+    "day": "yesterday",
+    "day_plural": "{{count}} days ago",
+    "week": "last week",
+    "week_plural": "{{count}} weeks ago"
+  }
 }

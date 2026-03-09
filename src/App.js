@@ -21,7 +21,10 @@ export default function App() {
     const [correctDay, setCorrectDay] = useState(null);
     const [selectedDay, setSelectedDay] = useState(null);
     const [answered, setAnswered] = useState(false);
-    const [history, setHistory] = useState([]);
+    const [history, setHistory] = useState(() => {
+		const saved = localStorage.getItem("practice_history");
+		return saved ? JSON.parse(saved) : [];
+	});
 
 	const getRandomDate = () => {
 		const start = new Date(1900, 0, 1);
@@ -44,6 +47,10 @@ export default function App() {
     useEffect(() => {
         if (!date) generateNewDate();
     }, [date, generateNewDate]);
+
+	useEffect(() => {
+		localStorage.setItem("practice_history", JSON.stringify(history));
+	}, [history]);
 
 	return (
         <div className="appWrapper">

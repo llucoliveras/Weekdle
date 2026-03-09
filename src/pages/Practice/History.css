@@ -1,5 +1,6 @@
 .historyContainer {
   width: 320px;
+  margin: 0 auto;
   padding: 30px 20px;
   border-left: 1px solid #222;
   background-color: #181818;
@@ -38,33 +39,43 @@
 }
 
 .historyItem {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   padding: 15px;
   margin-bottom: 12px;
   border-radius: 12px;
   font-size: 0.95rem;
   background-color: #222;
-  border: 1px solid transparent;
+  transition: transform 0.2s ease;
 }
 
 .historyCorrect {
-  border-left: 4px solid #00c853;
+  border-left: 4px solid var(--primary);
   background: linear-gradient(90deg, #1b2e22 0%, #1e1e1e 100%);
 }
 
 .historyWrong {
-  border-left: 4px solid #ff5252;
+  border-left: 4px solid #ef4444;
   background: linear-gradient(90deg, #2e1b1b 0%, #1e1e1e 100%);
 }
 
 .historyHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 8px;
 }
 
 .historyTime {
-  color: #777;
-  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.historyDetail {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  margin-top: 4px;
 }
 
 /* Mobile Styles for the History Component */
