@@ -57,24 +57,35 @@ export const Solver = ({ daysOfWeek }) => {
         const val = e.target.value;
         const filteredVal = val.replace(/[^0-9/.-]/g, ''); 
         setInputValue(filteredVal);
-        setShowProcess(false); // Hide process if they start re-typing
+        
+        setShowProcess(false);
+        setResult(null);
 
         const parts = filteredVal.split(/[/.-]/);
+        
         if (parts.length === 3) {
-            const [d, m, y] = parts;
-            if (d && m && y) {
-                const dateObj = new Date();
-                dateObj.setFullYear(parseInt(y, 10), parseInt(m, 10) - 1, parseInt(d, 10));
+            const d = parseInt(parts[0], 10);
+            const m = parseInt(parts[1], 10);
+            const y = parseInt(parts[2], 10);
 
-                if (!isNaN(dateObj.getTime()) && dateObj.getDate() === parseInt(d, 10)) {
+            if (d > 0 && d <= 31 && m > 0 && m <= 12 && !isNaN(y)) {
+                // 1. Initialize with any valid year first
+                const dateObj = new Date();
+                // 2. Use setFullYear to avoid the "1900s" auto-mapping
+                dateObj.setFullYear(y, m - 1, d);
+
+                const isValidDate = 
+                    dateObj.getFullYear() === y &&
+                    dateObj.getMonth() === m - 1 &&
+                    dateObj.getDate() === d;
+
+                if (isValidDate) {
                     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
                     setResult(days[dateObj.getDay()]);
-                    calculateDoomsdayProcess(d, m, y);
-                    return;
+                    calculateDoomsdayProcess(parts[0], parts[1], parts[2]);
                 }
             }
         }
-        setResult(null);
     };
 
     const getMonthRule = (month, isLeap) => {
