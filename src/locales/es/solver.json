@@ -1,7 +1,41 @@
 {
-    "title": "Solver de Fechas",
-    "prompt": "Introduce una fecha para encontrar el día",
-    "placeholder": "DD/MM/YYYY",
-    "resultPrefix": "Ese día fue un",
-    "learnHow": "¿Quieres aprender el càlculo? ¡Consulta la página de Información!"
+  "title": "Solucionador de Fechas",
+  "prompt": "Introduce una fecha para encontrar el día de la semana",
+  "placeholder": "DD/MM/AAAA",
+  "methodName": "El método Doomsday",
+  "step1": {
+    "label": "Ancla del Siglo",
+    "math": "El año {{century}} tiene un ancla de <strong>{{day}} ({{code}})</strong>.",
+    "cycle": "Ciclo de códigos de siglo:"
+  },
+  "step2": {
+    "label": "Lógica del Año (Elige tu método)",
+    "methodA": "Método A: La regla del 12",
+    "dozens": "Docenas (AA/12)",
+    "remainder": "Residuo (AA%12)",
+    "leaps": "Bisiestos (Res/4)",
+    "sumMod": "Suma mod 7",
+    "methodB": "Mètode B: Impar + 11",
+    "divide2": "Dividir por 2",
+    "even": "Par",
+    "formula": "7 - (Suma % 7)",
+    "finalYearResult": "Resultado: ({{val}} + Ancla {{anchor}}) mod 7 = <strong>{{result}}</strong>"
+  },
+  "step3": {
+    "label": "El Doomsday del Mes",
+    "anchorDate": "La fecha \"ancla\" para este mes es el <strong>{{day}}/{{month}}</strong>.",
+    "leapYear": "Año bisiesto",
+    "rules": {
+      "even": "Meses pares: 4/4, 6/6, 8/8, 10/10, 12/12 (¡Parejas fáciles!)",
+      "flip": "De 9 a 5 en el 7-11: 5/9 y 9/5, 7/11 y 11/7 (¡Fechas invertidas!)",
+      "pi": "El día de Pi: 14 de marzo (3/14 o \"Marzo 0\")",
+      "others": "Los otros: Ene {{janVal}}{{janAdj}} y Feb {{febVal}} (Último día de febrero)"
+    }
+  },
+  "step4": {
+    "label": "La Cuenta Final",
+    "targetMinusAnchor": "Día objetivo ({{day}}) - Ancla ({{anchor}}) = {{diff}} días",
+    "moveDays": "Desplaza {{diff}} días desde {{dayName}}.",
+    "finalVerdict": "Resultado: <strong>{{result}}</strong>"
+  }
 }

@@ -1,7 +1,41 @@
 {
-    "title": "Calculadora de Dates",
-    "prompt": "Introdueix una data per trobar el dia",
-    "placeholder": "DD/MM/YYYY",
-    "resultPrefix": "Aquell dia va ser un",
-    "learnHow": "Vols aprendre els càlculs? Consulta la pagina de Informació!"
+  "title": "Solucionador de Dates",
+  "prompt": "Introdueix una data per trobar el dia de la setmana",
+  "placeholder": "DD/MM/AAAA",
+  "methodName": "El mètode Doomsday",
+  "step1": {
+    "label": "Àncora del Segle",
+    "math": "L'any {{century}} té una àncora de <strong>{{day}} ({{code}})</strong>.",
+    "cycle": "Cicle dels codis de segle:"
+  },
+  "step2": {
+    "label": "Lògica de l'Any (Tria el teu mètode)",
+    "methodA": "Mètode A: La regla del 12",
+    "dozens": "Dotzenes (AA/12)",
+    "remainder": "Residu (AA%12)",
+    "leaps": "Bixestos (Residu/4)",
+    "sumMod": "Suma mod 7",
+    "methodB": "Mètode B: Senar + 11",
+    "divide2": "Dividir per 2",
+    "even": "Parell",
+    "formula": "7 - (Suma % 7)",
+    "finalYearResult": "Resultat: ({{val}} + Àncora {{anchor}}) mod 7 = <strong>{{result}}</strong>"
+  },
+  "step3": {
+    "label": "El Doomsday del Mes",
+    "anchorDate": "La data \"àncora\" per a aquest mes és el <strong>{{day}}/{{month}}</strong>.",
+    "leapYear": "Any bixest",
+    "rules": {
+      "even": "Mesos parells: 4/4, 6/6, 8/8, 10/10, 12/12 (Parelles fàcils!)",
+      "flip": "De 9 a 5 al 7-11: 5/9 i 9/5, 7/11 i 11/7 (Dates invertides!)",
+      "pi": "El dia de Pi: 14 de març (3/14 o \"Març 0\")",
+      "others": "Els altres: Gen {{janVal}}{{janAdj}} i Feb {{febVal}} (Últim dia de febrer)"
+    }
+  },
+  "step4": {
+    "label": "El Recompte Final",
+    "targetMinusAnchor": "Dia objectiu ({{day}}) - Àncora ({{anchor}}) = {{diff}} dies",
+    "moveDays": "Desplaça {{diff}} dies des de {{dayName}}.",
+    "finalVerdict": "Resultat: <strong>{{result}}</strong>"
+  }
 }

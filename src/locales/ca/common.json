@@ -11,5 +11,8 @@
   "months": {
     "jan": "Gen", "feb": "Feb", "mar": "Mar", "apr": "Abr", "may": "Mai", "jun": "Jun",
     "jul": "Jul", "aug": "Ago", "sep": "Set", "oct": "Oct", "nov": "Nov", "dec": "Des"
+  },
+  "abbreviations": {
+    "YY": "AA"
   }
 }

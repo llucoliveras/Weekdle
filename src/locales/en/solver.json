@@ -2,12 +2,40 @@
   "title": "Date Solver",
   "prompt": "Enter a date to find the day",
   "placeholder": "DD/MM/YYYY",
-  "resultPrefix": "That day was a",
-  "learnHow": "Want to learn the math? Check the Information page!",
-  "showProcess": "Show how to calculate",
-  "hideProcess": "Hide math",
-  "step1": "Century Anchor",
-  "step2": "Year Logic",
-  "step3": "Month Doomsday",
-  "step4": "Final Gap"
+  "methodName": "The Doomsday Method",
+  "step1": {
+    "label": "Century Anchor",
+    "math": "The year {{century}} has an anchor of <strong>{{day}} ({{code}})</strong>.",
+    "cycle": "Century codes cycle:"
+  },
+  "step2": {
+    "label": "Year Logic (Choose your method)",
+    "methodA": "Method A: The 12s Rule",
+    "dozens": "Dozens (YY/12)",
+    "remainder": "Remainder (YY%12)",
+    "leaps": "Leaps (Rem/4)",
+    "sumMod": "Sum mod 7",
+    "methodB": "Method B: Odd + 11",
+    "divide2": "Divide by 2",
+    "even": "Even",
+    "formula": "7 - (Sum % 7)",
+    "finalYearResult": "Result: ({{val}} + Anchor {{anchor}}) mod 7 = <strong>{{result}}</strong>"
+  },
+  "step3": {
+    "label": "Month's Doomsday",
+    "anchorDate": "The \"anchor\" date for this month is <strong>{{day}}/{{month}}</strong>.",
+    "leapYear": "Leap Year",
+    "rules": {
+      "even": "The Even Months: 4/4, 6/6, 8/8, 10/10, 12/12 (Easy pairs!)",
+      "flip": "9-to-5 at 7-11: 5/9 & 9/5, 7/11 & 11/7 (The flip dates!)",
+      "pi": "The Pi Day: March 14 (3/14 or \"March 0\")",
+      "others": "The Others: Jan {{janVal}}{{janAdj}} & Feb {{febVal}} (Last day of Feb)"
+    }
+  },
+  "step4": {
+    "label": "The Final Count",
+    "targetMinusAnchor": "Target Day ({{day}}) - Anchor ({{anchor}}) = {{diff}} days",
+    "moveDays": "Move {{diff}} days from {{dayName}}.",
+    "finalVerdict": "Result: <strong>{{result}}</strong>"
+  }
 }
