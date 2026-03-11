@@ -1,5 +1,4 @@
 /* Solver.css */
-
 .bigDateInput {
     background: transparent;
     border: none;
@@ -35,4 +34,211 @@
 
 .dateInputWrapper:focus-within {
     border-color: var(--primary);
+}
+
+.processButton {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Show button only when the parent has a valid result */
+.solverResultSection.visible .processButton {
+    display: inline-block;
+    animation: fadeIn 0.3s ease-in;
+}
+
+
+.processButton:hover {
+    background: var(--primary-soft);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.breakdownTitle {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.processBreakdown {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 550px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.step p {
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+/* Vertical line connecting steps */
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 35px;
+    bottom: -15px;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.stepNumber {
+    background: var(--primary);
+    color: #000;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    flex-shrink: 0;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.stepLabel {
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+}
+
+.stepMath {
+    margin: 0;
+    color: var(--text-main);
+    font-family: 'Courier New', Courier, monospace; /* Makes math look like math */
+    font-size: 1rem;
+    white-space: nowrap;        /* Prevents math from wrapping */
+}
+
+.stepContent small {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.finalVerdict {
+    margin-top: 15px;
+    padding: 10px;
+    background: var(--primary-soft);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    color: #fff;
+}
+
+/* Ensure the page can scroll when content is long */
+.solverContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Ensure the scroll works on the container */
+.solverContainer {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.stepMath.total {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+    color: var(--primary);
+}
+
+/* Ensure the hero section doesn't push things too far down */
+.solverHero {
+    margin-bottom: 20px;
+}
+
+.stepMath {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.testCard {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    
+    /* Reduced top padding, kept others balanced */
+    padding: 20px; 
+    
+    /* Vertical centering logic */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.testCard * {
+    all: revert; /* Reverts to browser default, ignoring global CSS */
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+    color: white;
+}
+
+.card-header {
+    font-size: 0.9rem;
+    color: var(--primary);
+    text-align: left;
+    margin-top: 15px;
+}
+
+/* Add margin to the final-math to separate it from the boxes */
+.final-math {
+    margin-top: 25px !important; /* Forces separation from the boxes above */
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    font-family: 'Courier New', monospace;
+}
+
+/* Helper for the rows inside the cards */
+.calc-row, .calc-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+}
+
+.calc-total {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--primary);
+}
+
+.methodsGrid {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
