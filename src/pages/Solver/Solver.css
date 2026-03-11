@@ -10,7 +10,6 @@
     text-align: center;
     width: 100%;
     transition: all 0.4s ease;
-    font-family: 'Courier New', Courier, monospace; /* Crucial for mask alignment */
     letter-spacing: 2px; /* Makes the DD/MM/YYYY easier to read */
     white-space: pre; /* Ensures spaces are rendered correctly */
 }

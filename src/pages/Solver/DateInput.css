@@ -1,0 +1,49 @@
+/* DateInput.css */
+.dateInputWrapper {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+    transition: border-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px; /* Reduced since it grows now */
+    max-width: 95vw;
+}
+
+.dateInputWrapper:focus-within {
+    border-color: var(--primary, #00ff88);
+}
+
+.dateField {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    text-align: center;
+    transition: width 0.2s ease, color 0.4s ease; /* Smooth width expansion */
+    letter-spacing: 2px;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.dateDivider {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.2);
+    user-select: none;
+    padding: 0 5px;
+}
+
+/* Valid state styling */
+.dateInputWrapper.isValid .dateField,
+.dateInputWrapper.isValid .dateDivider {
+    color: var(--primary, #00ff88);
+    text-shadow: 0 0 15px var(--primary-glow, rgba(0, 255, 136, 0.5));
+}
+
+.dateField::placeholder {
+    color: rgba(255, 255, 255, 0.05);
+}
