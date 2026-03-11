@@ -17,6 +17,7 @@ export const Solver = ({ daysOfWeek }) => {
 
         // 1. Century Anchor
         const century = Math.floor(year / 100);
+        const startOfCycle = Math.floor(century / 4) * 4;
         const centuryAnchors = [2, 0, 5, 3]; // Tue, Sun, Fri, Wed
         const anchor = centuryAnchors[century % 4];
 
@@ -46,7 +47,8 @@ export const Solver = ({ daysOfWeek }) => {
         const targetDoomsday = monthDoomsdays[month-1];
 
         setMathData({ 
-            yy, anchor, century, a, b, c, yearDoomsday, targetDoomsday, day, isLeap,
+            yy, anchor, century, startOfCycle, month,
+            a, b, c, yearDoomsday, targetDoomsday, day, isLeap,
             odd1: yy, odd2: oddStep1, odd3: oddStep2, odd4: oddStep3
         });
     };
@@ -63,7 +65,7 @@ export const Solver = ({ daysOfWeek }) => {
             if (d && m && y) {
                 const dateObj = new Date();
                 dateObj.setFullYear(parseInt(y, 10), parseInt(m, 10) - 1, parseInt(d, 10));
-                
+
                 if (!isNaN(dateObj.getTime()) && dateObj.getDate() === parseInt(d, 10)) {
                     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
                     setResult(days[dateObj.getDay()]);
@@ -73,6 +75,21 @@ export const Solver = ({ daysOfWeek }) => {
             }
         }
         setResult(null);
+    };
+
+    const getMonthRule = (month, isLeap) => {
+        const rules = {
+            even: "The Even Months: 4/4, 6/6, 8/8, 10/10, 12/12 (Easy pairs!)",
+            flip: "9-to-5 at 7-11: 5/9 & 9/5, 7/11 & 11/7 (The flip dates!)",
+            pi: "The Pi Day: March 14 (3/14 or \"March 0\")"
+        };
+
+        if ([1, 2].includes(month)) return `The Others: Jan ${isLeap ? '4 (Leap year adjustment)' : '3'} & Feb ${isLeap ? '29' : '28'} (Last day of Feb)`;
+        if (month === 3) return rules.pi;
+        if ([4, 6, 8, 10, 12].includes(month)) return rules.even;
+        if ([5, 9, 7, 11].includes(month)) return rules.flip;
+
+        return "";
     };
 
     return (
@@ -110,7 +127,13 @@ export const Solver = ({ daysOfWeek }) => {
                         <div className="stepContent">
                             <p className="stepLabel">Century Anchor</p>
                             <p className="stepMath">The year {Math.floor(parseInt(inputValue.split(/[/.-]/)[2]) / 100)} has an anchor of <strong>{`${t(daysOfWeek[mathData.anchor-1])} (${mathData.anchor})`}</strong>.</p>
-                            <small>Century codes cycle: 1800s Friday (5), 1900s Wednesday (3), 2000s Tuesday (2), 2100s Sunday (0).</small>
+                            <small>
+                                Century codes cycle: {` `}
+                                {mathData.startOfCycle}{mathData.startOfCycle !== 0 ? '00' : ''}s {t('days.tuesday')} (2), {` `}
+                                {mathData.startOfCycle + 1}00s {t('days.sunday')} (0), {` `}
+                                {mathData.startOfCycle + 2}00s {t('days.friday')} (5), {` `}
+                                {mathData.startOfCycle + 3}00s {t('days.wednesday')} (3).
+                            </small>
                         </div>
                     </div>
 
@@ -173,8 +196,12 @@ export const Solver = ({ daysOfWeek }) => {
                         <div className="stepNumber">3</div>
                         <div className="stepContent">
                             <p className="stepLabel">Month's Doomsday</p>
-                            <p className="stepMath">The "anchor" date for this month is <strong>{mathData.targetDoomsday}</strong>.</p>
-                            <small>Common anchors: 4/4, 6/6, 8/8, 10/10, 12/12, and 7/11, 11/7, 5/9, 9/5.</small>
+                            <p className="stepMath">
+                                The "anchor" date for this month is <strong>{mathData.targetDoomsday}/{mathData.month}</strong>.
+                            </p>
+                            <small className="monthRule">
+                                {getMonthRule(mathData.month, mathData.isLeap)}
+                            </small>
                         </div>
                     </div>
 
