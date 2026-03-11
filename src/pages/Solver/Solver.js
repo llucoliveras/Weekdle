@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './Solver.css';
 
@@ -46,7 +46,7 @@ export const Solver = ({ daysOfWeek }) => {
         const targetDoomsday = monthDoomsdays[month-1];
 
         setMathData({ 
-            yy, anchor, a, b, c, yearDoomsday, targetDoomsday, day, isLeap,
+            yy, anchor, century, a, b, c, yearDoomsday, targetDoomsday, day, isLeap,
             odd1: yy, odd2: oddStep1, odd3: oddStep2, odd4: oddStep3
         });
     };
@@ -109,7 +109,7 @@ export const Solver = ({ daysOfWeek }) => {
                         <div className="stepNumber">1</div>
                         <div className="stepContent">
                             <p className="stepLabel">Century Anchor</p>
-                            <p className="stepMath">The year {Math.floor(parseInt(inputValue.split(/[/.-]/)[2]) / 100)}00 has an anchor of <strong>{`${t(daysOfWeek[mathData.anchor-1])} (${mathData.anchor})`}</strong>.</p>
+                            <p className="stepMath">The year {Math.floor(parseInt(inputValue.split(/[/.-]/)[2]) / 100)} has an anchor of <strong>{`${t(daysOfWeek[mathData.anchor-1])} (${mathData.anchor})`}</strong>.</p>
                             <small>Century codes cycle: 1800s Friday (5), 1900s Wednesday (3), 2000s Tuesday (2), 2100s Sunday (0).</small>
                         </div>
                     </div>
