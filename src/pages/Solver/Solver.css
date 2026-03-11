@@ -5,12 +5,14 @@
     outline: none;
     font-size: 4rem;
     font-weight: 800;
-    letter-spacing: -1px;
     color: #ffffff;
     text-shadow: 0 10px 20px rgba(0,0,0,0.3);
     text-align: center;
     width: 100%;
     transition: all 0.4s ease;
+    font-family: 'Courier New', Courier, monospace; /* Crucial for mask alignment */
+    letter-spacing: 2px; /* Makes the DD/MM/YYYY easier to read */
+    white-space: pre; /* Ensures spaces are rendered correctly */
 }
 
 /* When a valid date is detected, the input text changes color */

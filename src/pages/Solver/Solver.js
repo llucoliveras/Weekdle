@@ -4,9 +4,8 @@ import './Solver.css';
 
 export const Solver = ({ daysOfWeek }) => {
     const { t } = useTranslation();
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState('  /  /    ');
     const [result, setResult] = useState(null);
-    const [showProcess, setShowProcess] = useState(false);
     const [mathData, setMathData] = useState(null);
     const inputRef = useRef(null);
 
@@ -54,36 +53,82 @@ export const Solver = ({ daysOfWeek }) => {
     };
 
     const handleInputChange = (e) => {
-        const val = e.target.value;
-        const filteredVal = val.replace(/[^0-9/.-]/g, ''); 
-        setInputValue(filteredVal);
+        const input = e.target;
+        let value = input.value;
+        let selectionStart = input.selectionStart;
+
+        // 1. Extract only the numeric digits
+        const digits = value.replace(/\D/g, '').substring(0, 8);
         
-        setShowProcess(false);
+        // 2. Map digits back into the fixed mask
+        let d = digits.substring(0, 2);
+        let m = digits.substring(2, 4);
+        let y = digits.substring(4, 8);
+        
+        // We pad with spaces to keep the slashes fixed
+        const formatted = `${d.padEnd(2, ' ')}/${m.padEnd(2, ' ')}/${y.padEnd(4, ' ')}`;
+        
+        setInputValue(formatted);
         setResult(null);
 
-        const parts = filteredVal.split(/[/.-]/);
-        
-        if (parts.length === 3) {
-            const d = parseInt(parts[0], 10);
-            const m = parseInt(parts[1], 10);
-            const y = parseInt(parts[2], 10);
+        // 3. Precise Cursor Management
+        // We determine if the cursor needs to skip a slash
+        let newPos = selectionStart;
 
-            if (d > 0 && d <= 31 && m > 0 && m <= 12 && !isNaN(y)) {
-                // 1. Initialize with any valid year first
-                const dateObj = new Date();
-                // 2. Use setFullYear to avoid the "1900s" auto-mapping
-                dateObj.setFullYear(y, m - 1, d);
+        // Logic: If the user just typed into a position that pushed them onto a slash
+        // (index 2 or 5), we bump them to index 3 or 6.
+        if (newPos === 2 || newPos === 5) {
+            // Check if we are moving forward (not deleting)
+            const isDeleting = e.nativeEvent.inputType?.includes('delete');
+            if (!isDeleting) {
+                newPos += 1;
+            }
+        }
 
-                const isValidDate = 
-                    dateObj.getFullYear() === y &&
-                    dateObj.getMonth() === m - 1 &&
-                    dateObj.getDate() === d;
+        // Use requestAnimationFrame or setTimeout(0) to ensure the 
+        // browser has rendered the new value before moving the cursor
+        requestAnimationFrame(() => {
+            input.setSelectionRange(newPos, newPos);
+        });
 
-                if (isValidDate) {
-                    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-                    setResult(days[dateObj.getDay()]);
-                    calculateDoomsdayProcess(parts[0], parts[1], parts[2]);
+        // 4. Validation (Remains same)
+        if (digits.length >= 5) {
+            const dayPart = digits.substring(0, 2);
+            const monthPart = digits.substring(2, 4);
+            const yearPart = digits.substring(4);
+
+            if (dayPart.length === 2 && monthPart.length === 2) {
+                const day = parseInt(dayPart, 10);
+                const month = parseInt(monthPart, 10);
+                const year = parseInt(yearPart, 10);
+
+                if (day > 0 && day <= 31 && month > 0 && month <= 12 && !isNaN(year)) {
+                    const dateObj = new Date();
+                    dateObj.setFullYear(year, month - 1, day);
+
+                    const isValid = 
+                        dateObj.getFullYear() === year &&
+                        dateObj.getMonth() === m - 1 &&
+                        dateObj.getDate() === day;
+
+                    if (isValid) {
+                        const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                        setResult(days[dateObj.getDay()]);
+                        calculateDoomsdayProcess(dayPart, monthPart, yearPart);
+                    }
                 }
+            }
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        const { selectionStart } = e.target;
+        
+        // Custom Backspace logic to "jump" over slashes
+        if (e.key === 'Backspace') {
+            if (selectionStart === 3 || selectionStart === 6) {
+                // Force selection to before the slash so the next digit is deleted
+                e.target.setSelectionRange(selectionStart - 1, selectionStart - 1);
             }
         }
     };
@@ -111,25 +156,18 @@ export const Solver = ({ daysOfWeek }) => {
                     <input 
                         ref={inputRef}
                         type="text" 
-                        placeholder={t('solver.placeholder')}
+                        inputMode="numeric"
+                        placeholder="DD/MM/YYYY"
                         className={`bigDateInput ${result ? 'valid' : ''}`}
                         onChange={handleInputChange}
+                        onKeyDown={handleKeyDown}
                         value={inputValue}
                         spellCheck="false"
                     />
                 </div>
-
-                <div className={`solverResultSection ${result ? 'visible' : ''}`}>
-                    <p className="wasA">{t('solver.resultPrefix')}</p>
-                    <h1 className="solvedDay">{result ? t(`days.${result}`) : ''}</h1>
-                    
-                    <button className="processButton" onClick={() => setShowProcess(!showProcess)}>
-                        {showProcess ? t('solver.hideProcess') : t('solver.showProcess')}
-                    </button>
-                </div>
             </div>
 
-            {showProcess && mathData && (
+            {result && mathData && (
                 <div className="processBreakdown">
                     <h3 className="breakdownTitle">The Doomsday Method</h3>
                     
@@ -137,7 +175,7 @@ export const Solver = ({ daysOfWeek }) => {
                         <div className="stepNumber">1</div>
                         <div className="stepContent">
                             <p className="stepLabel">Century Anchor</p>
-                            <p className="stepMath">The year {Math.floor(parseInt(inputValue.split(/[/.-]/)[2]) / 100)} has an anchor of <strong>{`${t(daysOfWeek[mathData.anchor-1])} (${mathData.anchor})`}</strong>.</p>
+                            <p className="stepMath">The year {mathData.century + (mathData.century !== 0 ? '00' : '')} has an anchor of <strong>{`${t(daysOfWeek[mathData.anchor-1])} (${mathData.anchor})`}</strong>.</p>
                             <small>
                                 Century codes cycle: {` `}
                                 {mathData.startOfCycle}{mathData.startOfCycle !== 0 ? '00' : ''}s {t('days.tuesday')} (2), {` `}
