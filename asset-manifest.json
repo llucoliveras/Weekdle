@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Weekdle/static/css/main.45454b1e.css",
-    "main.js": "/Weekdle/static/js/main.24c1f768.js",
+    "main.css": "/Weekdle/static/css/main.15af1b18.css",
+    "main.js": "/Weekdle/static/js/main.af57f46e.js",
     "static/js/453.7e01cb41.chunk.js": "/Weekdle/static/js/453.7e01cb41.chunk.js",
     "index.html": "/Weekdle/index.html",
-    "main.45454b1e.css.map": "/Weekdle/static/css/main.45454b1e.css.map",
-    "main.24c1f768.js.map": "/Weekdle/static/js/main.24c1f768.js.map",
+    "main.15af1b18.css.map": "/Weekdle/static/css/main.15af1b18.css.map",
+    "main.af57f46e.js.map": "/Weekdle/static/js/main.af57f46e.js.map",
     "453.7e01cb41.chunk.js.map": "/Weekdle/static/js/453.7e01cb41.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.45454b1e.css",
-    "static/js/main.24c1f768.js"
+    "static/css/main.15af1b18.css",
+    "static/js/main.af57f46e.js"
   ]
 }
